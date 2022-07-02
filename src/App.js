@@ -1,15 +1,18 @@
-import Backdrop from "./components/Backdrop";
-import Modal from "./components/Modal";
-import Todo from "./components/Todo";
-
+import { Route, Routes } from "react-router-dom";
+import AllMeetupsPage from "./pages/AllMeetups";
+import FavoritesPage from "./pages/Favorites";
+import NewMeetupPage from "./pages/NewMeetup";
+import Layout from "./components/layout/Layout";
+// Switch is replaced with Routes in react-router-dom
 function App() {
   return (
-    <div>
-      <h1>to do list</h1>
-      <Todo text="task1" />
-      <Todo text="task2" />
-      <Todo text="task3" />
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<AllMeetupsPage />} />
+        <Route path="/new-meetup" element={<NewMeetupPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+      </Routes>
+    </Layout>
   );
 }
 
